@@ -1,0 +1,139 @@
+@import "_variables"
+
+
+body.index-body
+  height: 100%
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  justify-content: space-between
+  background: $background-color
+
+  header
+    background-color: lighten($background-color, 5%)
+    height: 55px
+    width: 100vw
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 50px
+
+    .home
+      display: block
+      width: 35px
+      height: 35px
+      padding: 0 10px
+      background-image: url("../images/home.svg")
+      background-repeat: no-repeat
+      background-position: center center
+
+      a
+        display: block
+        width: 100%
+        height: 100%
+
+  .socials
+    height: auto
+    padding: 0 20px
+    display: flex
+    flex-flow: row nowrap
+    justify-content: end
+
+    li
+      list-style: none
+      margin-left: 10px
+      $size: 28px
+
+      a
+        display: inline-block
+        position: relative
+        width: $size
+        height: $size
+        background: linear-gradient(to top, #A6824B, #FFF194) no-repeat center center
+        mask-size: cover
+        border-radius: 50%
+
+        &:after
+          content: ''
+          display: block
+          position: absolute
+          width: 100%
+          height: 100%
+          background: linear-gradient(to bottom, #A6824B, #FFF194) no-repeat center center
+          opacity: 0
+          transition: opacity 1s ease-out
+
+        &:hover
+          &:after
+            opacity: 1
+            transition: opacity 0.33s ease-in
+
+      @each $soc in (telegram, github, linkedin)
+        a.socials-#{$soc}
+          mask-image: url("../images/" + $soc + ".svg")
+          -webkit-mask-image: url("../images/" + $soc + ".svg")
+          @if ($soc == github)
+            width: $size + 1.25px
+            height: $size + 1.25px
+
+    main
+      height: 80%
+      margin: 0 auto
+      padding: 20px 10px
+
+    p
+      color: $text-color
+
+  footer
+    background-color: lighten($background-color, 5%)
+    height: 150px
+    width: 100vw
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+
+  .creative-society
+    display: block
+    height: 100px
+    margin: 25px 10px 0 25px
+
+  .copyright
+    height: auto
+    padding: 15px 30px 0 0
+    display: flex
+    flex-direction: column
+    justify-content: end
+
+  .links
+    li
+      list-style: none
+
+      a
+        position: relative
+        display: block
+        min-height: 32px
+        color: $text-color
+        text-decoration: none
+
+        &:hover
+          color: darken($text-color, 5%)
+
+          &:before
+            left: -17px
+            transition: all 0.5s ease
+
+        &:before
+          content: ''
+          position: absolute
+          top: 3.5px
+          left: -24px
+          display: block
+          width: 12px
+          height: 12px
+          vertical-align: middle
+          background-image: url("../images/arrow.svg")
+          background-repeat: no-repeat
+          background-position: left 0
+          transition: all 0.5s ease

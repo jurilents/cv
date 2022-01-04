@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+@mixin font($font-family, $font-weight, $font-style, $fonts-path, $file-formats) {
+    @font-face {
+        font-family: "Ubuntu";
+        @each $extension,
+        $format in $file-formats {
+            src: url($fonts-path + $extension) format($format);
+        }
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}
+
+$formats: ( 
+	".eot": "embedded-opentype", /* IE9 Compat Modes */
+	".eot?#iefix": "embedded-opentype", /* IE6-IE8 */
+	".ttf": "truetype", /* Safari, Android, iOS */
+	".woff": "woff", /* Modern Browsers */
+	".woff2": "woff2" /* Modern Browsers */
+);
+
+$ubuntu-font-path: "../fonts/ubuntu";
+// Ubuntu Regular
+@include font("Ubuntu", normal, normal, $ubuntu-font-path, $formats);
+// Ubuntu Italic
+@include font("Ubuntu-Italic", normal, italic, $ubuntu-font-path+"-italic", $formats);
+// Ubuntu Bold
+@include font("Ubuntu-Bold", bold, normal, $ubuntu-font-path+"-bold", $formats);
+// Ubuntu Light
+@include font("Ubuntu-Libgt", 200, normal, $ubuntu-font-path+"-light", $formats);

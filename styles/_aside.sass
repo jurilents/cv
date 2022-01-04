@@ -1,0 +1,75 @@
+@import "_variables"
+
+aside
+  position: absolute
+  right: 5%
+  top: -190px
+  width: 270px
+
+  &:before
+    $width: 0.94
+
+    content: ''
+    position: absolute
+    left: percentage((1 - $width) / 2)
+    display: block
+    width: percentage($width)
+    height: 100%
+    background-color: $primary-color
+    border-radius: 200px
+    opacity: 10%
+
+  #employee-photo > img
+    display: block
+    width: 100%
+    height: auto
+    border-radius: 50%
+
+  .aside-content
+    padding: 0 20px 75px 20px
+
+    .address
+      padding: 30px 0 20px 0
+      text-align: center
+      font-size: 1.175em
+
+  .contacts
+    width: 70%
+    margin: 0 auto
+    padding: 0
+    text-align: center
+    list-style-type: none
+
+    &:hover
+      cursor: pointer
+
+    .contacts-img
+      $size: 33px
+
+      display: block
+      width: $size
+      height: $size
+      margin: 18px auto
+
+      mask-size: cover
+      background: $primary-color no-repeat center center
+      transition: all 0.2s ease
+
+      &:hover
+        width: $size + 5px
+        height: $size + 5px
+        background-color: #282525
+        transition: all 0.075s ease
+
+    @each $item in (email, phone, github, linkedin, telegram)
+      #img-#{$item}
+        mask-image: url("../images/contacts/" + $item + ".svg")
+        -webkit-mask-image: url("../images/contacts/" + $item + ".svg")
+
+    a
+      text-decoration: none
+      color: black
+      font-size: 1.075em
+      font-family: Arial, sans-serif
+      font-weight: 500
+
