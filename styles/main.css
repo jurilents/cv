@@ -477,11 +477,6 @@ body.index-body .links li a:before {
   .contacts .text {
     display: none;
   }
-  .wide-section-content {
-    width: 100% !important;
-    -ms-flex-wrap: wrap !important;
-        flex-wrap: wrap !important;
-  }
 }
 
 @media (max-width: 724px) {
@@ -520,7 +515,7 @@ main {
 
 section {
   margin: 0 0 50px 0;
-  width: 60%;
+  width: 58%;
   letter-spacing: 0.033em;
   line-height: 1.25em;
 }
@@ -619,6 +614,7 @@ section .section-content ul .s-5::before {
 
 section .section-content .project-wrapper {
   width: 290px;
+  min-width: 290px;
   height: auto;
   margin-bottom: 40px;
 }
@@ -652,5 +648,28 @@ section .section-content .section-subcontent h4 {
 
 .secondary {
   color: #aaa;
+}
+
+.flag {
+  display: inline-block;
+  width: 20px !important;
+  height: 18px;
+}
+
+.wide {
+  width: 80% !important;
+}
+
+.extra-wide {
+  width: 100% !important;
+}
+
+.wide-section-content {
+  width: 100% !important;
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
+  -webkit-box-pack: space-evenly !important;
+      -ms-flex-pack: space-evenly !important;
+          justify-content: space-evenly !important;
 }
 /*# sourceMappingURL=main.css.map */
